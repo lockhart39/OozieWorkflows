@@ -194,7 +194,6 @@
 			<arg>1</arg>
                         <arg>--delete-target-dir</arg>
 			<arg>--direct</arg>
-                        <file>/user/oozie/share/hive-site.xml</file>
 	    </sqoop>
 	<ok to="end"/>
 	<error to="failWhere"/>
