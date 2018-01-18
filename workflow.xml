@@ -164,7 +164,7 @@
 
 
 <action name="sqoopWhere">
-	<sqoop xmlns="uri:oozie:sqoop-action:0.2">
+	    <sqoop xmlns="uri:oozie:sqoop-action:0.2">
 		<job-tracker>${jobTracker}</job-tracker>
 		<name-node>${nameNode}</name-node>
   			<arg>import</arg>
@@ -182,9 +182,8 @@
                         <arg>${stgdb}</arg>
                         <arg>--hive-table</arg>
                         <arg>${stgtablename}</arg>
-			<arg>--create-hive-table</arg>
-			<arg>--where</arg>
-			<arg>${where}</arg>
+                        <arg>--where</arg>
+                        <arg>${clause}</arg>
                         <arg>--hive-drop-import-delims</arg>
                         <arg>--null-string</arg>
                         <arg>'\\N'</arg>
@@ -193,8 +192,7 @@
 			<arg>--m</arg>
 			<arg>1</arg>
                         <arg>--delete-target-dir</arg>
-			<arg>--direct</arg>
-                        <file>/user/oozie/share/hive-site.xml</file>
+                        <file>/user/oozie/share/hive-site.xml</file> 
 	    </sqoop>
 	<ok to="end"/>
 	<error to="failWhere"/>
