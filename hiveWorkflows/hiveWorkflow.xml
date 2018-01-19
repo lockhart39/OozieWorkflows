@@ -6,6 +6,9 @@
 	    <case to="insert_stg_to_prq">
             ${decision==1}
 	    </case>
+	    <case to="insert_stg_to_prq_withWhere">
+            ${decision==2}
+	    </case>
 	    <default to="insert_stg_to_prq"/>
     </switch>	
 </decision>
@@ -31,7 +34,21 @@
 </action>
 
 
-
+<action name="insert_stg_to_prq_withWhere">
+	<hive2 xmlns="uri:oozie:hive2-action:0.1">
+		<job-tracker>${jobTracker}</job-tracker>
+		<name-node>${nameNode}</name-node>
+		<jdbc-url>jdbc:hive2://quickstart.cloudera:10000/default</jdbc-url>
+		    <script>${hqlscript}</script>
+		    <param>stgdb=${stgdb}</param>
+		    <param>stgtablename=${stgtablename}</param>
+		    <param>prqdb=${prqdb}</param>
+		    <param>prqtablename=${prqtablename}</param>
+		    <param>columns=${columns}</param>
+	</hive2>
+	<ok to="end"/>
+	<error to="stg_prq_fail"/>
+</action>
 
 
 <kill name="stg_prq_fail">

@@ -1,8 +1,8 @@
 
 <workflow-app xmlns="uri:oozie:workflow:0.5" name="Data-Ingestion-Workflow">
-<start to="OrcText"/>
+<start to="SqoopDecision"/>
 <!--skips the sqoop action for csv files sent strait to staging tables-->
-<decision name="OrcText">
+<decision name="SqoopDecision">
 	<switch>
 	    <case to="sqoopCompressionCodeC">
             ${decision==1}
