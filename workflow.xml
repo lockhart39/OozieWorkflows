@@ -24,10 +24,10 @@
 	
 <action name="sqoop">
 			<!-- scooping data from MySQL to Hive-->
-  			<sqoop xmlns="uri:oozie:sqoop-action:0.2">
-   			<job-tracker>${jobTracker}</job-tracker>
-   			<name-node>${nameNode}</name-node>
-  			            <arg>import</arg>
+  	<sqoop xmlns="uri:oozie:sqoop-action:0.2">
+   		<job-tracker>${jobTracker}</job-tracker>
+   		<name-node>${nameNode}</name-node>
+  			<arg>import</arg>
                         <arg>--connect</arg>
                         <arg>jdbc:mysql://localhost:3306/${srcdbase}</arg>
                         <arg>--username</arg>
@@ -47,11 +47,11 @@
                         <arg>'\\N'</arg>
                         <arg>--null-non-string</arg>
                         <arg>'\\N'</arg>
-			            <arg>--m</arg>
-			            <arg>1</arg>
+			<arg>--m</arg>
+			<arg>1</arg>
                         <arg>--delete-target-dir</arg>
                         <file>/user/oozie/share/hive-site.xml</file> 
-            </sqoop>
+        </sqoop>
     <ok to="end" />
     <error to="fail" />
 </action>

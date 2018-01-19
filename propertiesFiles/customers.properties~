@@ -1,14 +1,16 @@
 nameNode=hdfs://quickstart.cloudera:8020
 jobTracker=quickstart.cloudera:8032
-oozie.wf.application.path=${nameNode}/user/cloudera/OozieWorkflows
+oozie.wf.application.path=${nameNode}/user/cloudera/OozieWorkflows/HiveFlows
 oozie.use.system.libpath=True
 usr=root
 pw=cloudera
 srcdbase=retail_db
 srctablename=customers
 stgdb=retail_stg
-stgtablename=whereTesting_1
+stgtablename=customers
 prqdb=retail
-prqtablename=workflowTesting_prq
+prqtablename=customers
 decision=4
 clause="customer_fname = 'Richard'"
+hqlscript=/user/cloudera/OozieWorkflows/Testing/stg_to_prq.hql
+columns=*
