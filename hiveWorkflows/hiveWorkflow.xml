@@ -33,6 +33,10 @@
 	<error to="stg_prq_fail"/>
 </action>
 
+<!-- BE SURE TO REMOVE QUOTATIONS IN PROPERTIES FILE INSIDE OF THE CLAUSE VARIABLE WHEN USING IT FOR HIVE JOBS
+     SQOOP WHERE REQUIRES QUOTATIONS BUT HIVE WHERE STATEMENTS DO NOT  -->
+
+
 
 <action name="insert_stg_to_prq_withWhere">
 	<hive2 xmlns="uri:oozie:hive2-action:0.1">
@@ -45,6 +49,7 @@
 		    <param>prqdb=${prqdb}</param>
 		    <param>prqtablename=${prqtablename}</param>
 		    <param>columns=${columns}</param>
+            <param>clause=${clause}</param>
 	</hive2>
 	<ok to="end"/>
 	<error to="stg_prq_fail"/>

@@ -6,6 +6,9 @@
 	    <case to="insert_stg_to_prq">
             ${decision==1}
 	    </case>
+	    <case to="insert_stg_to_prq_withWhere">
+            ${decision==2}
+	    </case>
 	    <default to="insert_stg_to_prq"/>
     </switch>	
 </decision>
@@ -42,6 +45,7 @@
 		    <param>prqdb=${prqdb}</param>
 		    <param>prqtablename=${prqtablename}</param>
 		    <param>columns=${columns}</param>
+            <param>clause=${clause}</param>
 	</hive2>
 	<ok to="end"/>
 	<error to="stg_prq_fail"/>
