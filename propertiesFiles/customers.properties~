@@ -6,11 +6,13 @@ usr=root
 pw=cloudera
 srcdbase=retail_db
 srctablename=customers
-stgdb=retail_stg
-stgtablename=customers
-prqdb=retail
+stgdb=sportinggoods_stg
+stgtablename=customers_stg
+prqdb=sportinggoods_prod
 prqtablename=customers
-decision=4
-clause="customer_fname = 'Richard'"
-hqlscript=/user/cloudera/OozieWorkflows/Testing/stg_to_prq.hql
+sqoopDecision=2
+hiveDecision=2
+where="customer_fname = 'Austin'"
+clause=customer_state = 'TX'
+hqlscript=/user/cloudera/OozieWorkflows/Scripts/HQL_Scripts/stg_to_prq.hql
 columns=*

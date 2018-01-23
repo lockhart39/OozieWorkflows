@@ -5,16 +5,16 @@
 <decision name="SqoopDecision">
 	<switch>
 	    <case to="sqoopCompressionCodeC">
-            ${decision==1}
+            ${sqoopDecision==1}
 	    </case>
         <case to="sqoopCompression">
-            ${decision==2}
+            ${sqoopDecision==2}
         </case>
         <case to="sqoopOrc">
-            ${decision==3}
+            ${sqoopDecision==3}
         </case>
 	<case to="sqoopWhere">
-	    ${decision==4}
+	    ${sqoopDecision==4}
 	</case>
 	    <default to="sqoop"/>
     </switch>	
@@ -183,7 +183,7 @@
                         <arg>--hive-table</arg>
                         <arg>${stgtablename}</arg>
                         <arg>--where</arg>
-                        <arg>${clause}</arg>
+                        <arg>${where}</arg>
                         <arg>--hive-drop-import-delims</arg>
                         <arg>--null-string</arg>
                         <arg>'\\N'</arg>

@@ -4,10 +4,10 @@
 <decision name="hiveDecision">
 	<switch>
 	    <case to="insert_stg_to_prq">
-            ${decision==1}
+            ${hiveDecision==1}
 	    </case>
 	    <case to="insert_stg_to_prq_withWhere">
-            ${decision==2}
+            ${hiveDecision==2}
 	    </case>
 	    <default to="insert_stg_to_prq"/>
     </switch>	
@@ -32,6 +32,10 @@
 	<ok to="end"/>
 	<error to="stg_prq_fail"/>
 </action>
+
+<!-- BE SURE TO REMOVE QUOTATIONS IN PROPERTIES FILE INSIDE OF THE CLAUSE VARIABLE WHEN USING IT FOR HIVE JOBS
+     SQOOP WHERE REQUIRES QUOTATIONS BUT HIVE WHERE STATEMENTS DO NOT  -->
+
 
 
 <action name="insert_stg_to_prq_withWhere">

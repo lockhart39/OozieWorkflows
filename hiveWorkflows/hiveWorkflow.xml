@@ -4,10 +4,10 @@
 <decision name="hiveDecision">
 	<switch>
 	    <case to="insert_stg_to_prq">
-            ${decision==1}
+            ${hiveDecision==1}
 	    </case>
 	    <case to="insert_stg_to_prq_withWhere">
-            ${decision==2}
+            ${hiveDecision==2}
 	    </case>
 	    <default to="insert_stg_to_prq"/>
     </switch>	
